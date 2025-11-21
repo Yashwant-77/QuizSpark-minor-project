@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(categories);
   } catch (error) {
-    console.log("There was an error getting Categories: ", error);
+    console.log("There was an error getting Categories: ", String(error));
     return NextResponse.json(
       { error: "There was an error getting Categories" },
       {

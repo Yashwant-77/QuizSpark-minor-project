@@ -11,12 +11,16 @@ const useCategories = () => {
     try {
       const res = await axios.get("/api/categories");
 
-      setCategories(res.data);
+      setCategories(res.data || []);
 
-      setLoading(false);
+      // setLoading(false);
     } catch (error) {
-      console.log("Error fetching categories", error);
+      console.log("Error fetching categories", String(error));
+      setCategories([]);
     }
+    finally {
+      setLoading(false);
+    } 
   };
 
   useEffect(() => {
